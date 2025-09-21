@@ -1,0 +1,126 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="hanging_man.MainPage"
+             BackgroundColor="#FFE6ED">
+
+    <Grid RowDefinitions="Auto, *, Auto">
+
+        <!-- כותרת -->
+        <Label Text="HANGMAN"
+               TextColor="#CF7486"
+               FontSize="32"
+               FontAttributes="Bold"
+               HorizontalOptions="Center"
+               Grid.Row="0"
+               Margin="0,20,0,10" />
+
+        <!-- גוף המשחק -->
+        <Grid Grid.Row="1" ColumnSpacing="20" Padding="20">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="5*" />
+                <ColumnDefinition Width="3*" />
+            </Grid.ColumnDefinitions>
+
+            <!-- צד שמאל -->
+            <Grid Grid.Column="0" RowSpacing="10">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="*" />
+                </Grid.RowDefinitions>
+
+                <!-- שם השחקן -->
+                <HorizontalStackLayout Grid.Row="0" Spacing="10">
+                    <Label Text="Player:" FontSize="16" TextColor="#CF7486" />
+                    <Entry x:Name="PlayerNameEntry"
+                           Placeholder="Enter name"
+                           FontSize="16"
+                           WidthRequest="150"
+                           Completed="OnPlayerNameChanged"
+                           TextColor="#CF7486"/>
+                </HorizontalStackLayout>
+
+                <!-- Picker לאורך מילה -->
+                <Picker
+                    Title="Select word length"
+                    TitleColor="#CF7486"
+                    ItemsSource="{Binding WordLengths}"
+                    SelectedItem="{Binding SelectedWordLength}"
+                    FontSize="16"
+                    TextColor="#CF7486"
+                    Margin="0,0,0,5"
+                    HorizontalOptions="Start"
+                    WidthRequest="180"
+                    Grid.Row="1" />
+
+                <!-- רשת אותיות -->
+                <Grid x:Name="LettersGrid"
+                      Grid.Row="2"
+                      RowSpacing="5"
+                      ColumnSpacing="5"
+                      HorizontalOptions="Start">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto"/>
+                        <ColumnDefinition Width="Auto"/>
+                        <ColumnDefinition Width="Auto"/>
+                        <ColumnDefinition Width="Auto"/>
+                        <ColumnDefinition Width="Auto"/>
+                        <ColumnDefinition Width="Auto"/>
+                        <ColumnDefinition Width="Auto"/>
+                        <ColumnDefinition Width="Auto"/>
+                        <ColumnDefinition Width="Auto"/>
+                        <ColumnDefinition Width="Auto"/>
+                        <ColumnDefinition Width="Auto"/>
+                        <ColumnDefinition Width="Auto"/>
+                        <ColumnDefinition Width="Auto"/>
+                    </Grid.ColumnDefinitions>
+                </Grid>
+
+                <!-- ניקוד -->
+                <Label Grid.Row="3"
+                       Text="{Binding ScoreText}"
+                       FontSize="18"
+                       TextColor="#CF7486"
+                       FontAttributes="Bold"
+                       HorizontalOptions="Start"
+                       Margin="0,5,0,0"/>
+
+                <!-- תצוגת המילה -->
+                <HorizontalStackLayout x:Name="WordDisplay"
+                                       Grid.Row="4"
+                                       Spacing="5"
+                                       HorizontalOptions="Start"
+                                       VerticalOptions="EndAndExpand"
+                                       Margin="0,10,0,0" />
+            </Grid>
+
+            <!-- צד ימין - האיש התלוי -->
+            <Image
+                Grid.Column="1"
+                Aspect="AspectFit"
+                HeightRequest="500"
+                HorizontalOptions="End"
+                VerticalOptions="Center"
+                Source="{Binding HangmanImageSource}" />
+        </Grid>
+
+        <!-- כפתור ריסטארט -->
+        <Button Text="RESTART GAME"
+                Grid.Row="2"
+                HorizontalOptions="Center"
+                Margin="0,10"
+                WidthRequest="200"
+                BackgroundColor="#FFE6ED"
+                BorderColor="#CF7486"
+                BorderWidth="2"
+                TextColor="#CF7486"
+                Clicked="RestartGame"/>
+    </Grid>
+</ContentPage>
