@@ -113,7 +113,7 @@ public partial class MainPage : ContentPage
                 col = 0;
                 row++;
             }
-            c++;
+            c--;
         }
     }
 
