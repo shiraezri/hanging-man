@@ -274,7 +274,6 @@ public partial class MainPage : ContentPage
         }
     }
 
-    // פונקציית עזר: בדיקה אם תו הוא אות אנגלית
     private bool IsEnglishLetter(char c)
     {
         return (c >= 'A' && c <= 'Z') || (c >= 'a' && c <= 'z');
