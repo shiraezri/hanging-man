@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="hanging_man.GuidePage"
+             Title="Game Instructions"
+             BackgroundColor="#f6e6e9"
+             Padding="25">
+
+    <ScrollView>
+        <VerticalStackLayout Spacing="20">
+
+            <Label Text="🎮 How to Play Hangman 🎮"
+                   FontSize="28"
+                   FontAttributes="Bold"
+                   TextColor="#CF7486"
+                   HorizontalOptions="Center" />
+
+            <Frame BackgroundColor="#FFE6ED"
+                   CornerRadius="15"
+                   Padding="15"
+                   HasShadow="True">
+                <VerticalStackLayout Spacing="12">
+
+                    <Label Text="1️. A random word is selected based on your chosen length."
+                           FontSize="18"
+                           TextColor="#CF7486" />
+
+                    <Label Text="2️. Your goal is to guess the word by selecting letters one by one."
+                           FontSize="18"
+                           TextColor="#CF7486" />
+
+                    <Label Text="3️. If the letter is in the word, it will appear in the correct places. ✨"
+                           FontSize="18"
+                           TextColor="#CF7486" />
+
+                    <Label Text="4️. If the letter is wrong, the hangman image will advance. ⚠️"
+                           FontSize="18"
+                           TextColor="#CF7486" />
+
+                    <Label Text="5️. You have 6 chances to guess incorrectly before the game ends. ⏳"
+                           FontSize="18"
+                           TextColor="#CF7486" />
+
+                    <Label Text="6️. Guess the whole word before 6 wrong attempts to win! 🏆"
+                           FontSize="18"
+                           TextColor="#CF7486" />
+
+                    <Label Text="7️. Use the Restart button anytime to play again. 🔄"
+                           FontSize="18"
+                           TextColor="#CF7486" />
+
+                </VerticalStackLayout>
+            </Frame>
+
+            <Label Text="Good luck and have fun! 🎉"
+                   FontSize="20"
+                   FontAttributes="Italic"
+                   TextColor="#CF7486"
+                   HorizontalOptions="Center" />
+
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>
